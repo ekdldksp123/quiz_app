@@ -1,10 +1,6 @@
 {
   "extends": "next",
   "rules": {
-    "react/default-props-match-prop-types": "off",
-    "react/destructuring-assignment": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "react/require-default-props": "off"
+    "react/jsx-key": "off"
   }
 }
