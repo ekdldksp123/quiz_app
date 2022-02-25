@@ -36,3 +36,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# ssh key
+quiz_app_key
+quiz_app_key.pub
