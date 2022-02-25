@@ -5,9 +5,8 @@
   "homepage": "https://ekdldksp123.github.io/quiz_app/",
   "scripts": {
     "dev": "next dev",
-    "start": "react-scripts start",
-    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-    "test": "react-scripts test",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "export": "next export",
     "deploy": "gh-pages -d build",
@@ -17,6 +16,7 @@
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "axios": "^0.26.0",
     "gh-pages": "^3.2.3",
     "next": "12.1.0",
     "react": "17.0.2",
@@ -39,7 +39,6 @@
     "babel-loader": "^8.2.3",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
-    "eslint-plugin-storybook": "^0.5.7",
     "typescript": "4.5.5"
   }
 }
