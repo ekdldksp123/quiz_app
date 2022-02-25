@@ -5,9 +5,9 @@
   "homepage": "https://ekdldksp123.github.io/quiz_app/",
   "scripts": {
     "dev": "next dev",
-    "start": "DISABLE_ESLINT_PLUGIN=true next start",
-    "build": "DISABLE_ESLINT_PLUGIN=true next build",
-    "test": "DISABLE_ESLINT_PLUGIN=true next test",
+    "start": "react-scripts start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "test": "react-scripts test",
     "lint": "next lint",
     "export": "next export",
     "deploy": "gh-pages -d build",
