@@ -5,8 +5,9 @@
   "homepage": "https://ekdldksp123.github.io/quiz_app/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test",
     "lint": "next lint",
     "export": "next export",
     "deploy": "gh-pages -d build",
@@ -21,6 +22,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-query": "^3.34.16",
+    "react-scripts": "^5.0.0",
     "redux": "^4.1.2",
     "redux-saga": "^1.1.3"
   },
