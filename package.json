@@ -2,7 +2,7 @@
   "name": "quiz_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ekdldksp123.github.io/quiz_app/",
+  "homepage": "https://ekdldksp123.github.io/quiz_app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
