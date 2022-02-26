@@ -24,6 +24,12 @@ export const ModalBody = styled.div`
     top: 0;
     left: 0;
     right: 0;
+    height: 80%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 export const ModalFooter = styled.div`

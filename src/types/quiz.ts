@@ -1,13 +1,14 @@
 export interface Questions {
     count: number,
-    // plus: () => void,
-    // minus: () => void,
-    // set: (value:string) => void 
 } 
 
 export interface Category {
     id: number,
     name: string,
+    total?: number,
+    easy?: number,
+    medium?: number,
+    hard?: number
 }
 
 export interface Difficulty {
@@ -25,6 +26,5 @@ export interface QuizProps {
     categories: Category[],
     levels: Difficulty[],
     types: Type[],
-    // confirm?: (amount: string, category: string, level: string, type: string) => void
 }
 

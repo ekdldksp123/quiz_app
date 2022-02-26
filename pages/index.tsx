@@ -20,10 +20,24 @@ export const getStaticProps: GetStaticProps = async () => {
     const { data } = await axios.get('https://opentdb.com/api_category.php');
     
     if(data) {
-
       const categories:Category[] = data['trivia_categories'];
-      categories.unshift({id:0, name: 'Any Category'});
       
+      for(const v of categories) {
+        await fetch(`https://opentdb.com/api_count.php?category=${v.id}`)
+          .then((res) => res.json())
+          .then((data) => {
+            const countInfo = data["category_question_count"];
+            v.total = countInfo["total_question_count"];
+            v.easy = countInfo["total_easy_question_count"];
+            v.medium = countInfo["total_medium_question_count"];
+            v.hard = countInfo["total_hard_question_count"];
+          })
+          .catch((error) => console.log(error));
+      }
+
+      categories.unshift({id:0, name: 'Any Category'});
+      console.log(categories);
+
       const questions:Questions = { count: 10 };
       
       const quizProps: QuizProps = {

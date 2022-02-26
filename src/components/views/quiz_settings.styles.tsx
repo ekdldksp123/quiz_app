@@ -66,7 +66,7 @@ export const Sign = styled.span`
     cursor:pointer; 
     background:#fff;
     border-radius: 6px;
-    top: 12.5px;
+    margin-top: 3px !important;
     text-align: center;
     color: rgba(255, 74, 86, 0.7);
     font-weight: bold;
@@ -103,7 +103,6 @@ export const SelectBox = styled.div`
     padding-right: 8px;
     width: 60% !important;
     height: 50px;
-    font-size: 1.3rem;
 `
 
 export const Select = styled.select`
@@ -118,7 +117,7 @@ export const Select = styled.select`
 
     & option {
         padding: 5px 5px 5px 5px;
-        font-size: 1.3em;
+        font-size: 1.25rem;
         background: rgba(255, 74, 86, 0.7);
         color: #fff;
     }
