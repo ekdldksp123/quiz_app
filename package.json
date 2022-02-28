@@ -2,7 +2,6 @@
   "name": "quiz_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ekdldksp123.github.io/quiz_app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -41,5 +40,6 @@
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
     "typescript": "4.5.5"
-  }
+  },
+  "homepage": "https://ekdldksp123.github.io/quiz_app/"
 }
