@@ -25,7 +25,6 @@ jobs:
           sudo yarn install
           sudo chmod -R 755 ./node_modules/
           sudo yarn run build
-          cp quiz_app/index.html quiz_app/404.html
           sudo yarn run export
         env:
             CI: true
