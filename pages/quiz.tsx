@@ -24,7 +24,7 @@ const Quiz: NextPage = ({ quizzes } : InferGetServerSidePropsType<typeof getServ
                     type: v.type,
                     difficulty: v.difficulty,
                     correct: v['correct_answer'],
-                    options: ['TRUE', 'FALSE'],
+                    options: ['True', 'False'],
                 }
                 return quiz;
             } else {

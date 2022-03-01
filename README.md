@@ -22,6 +22,8 @@
 - next 버튼 클릭시 다음 페이지로 슬라이드
 - 문제 다 풀면 result 페이지로 라우팅
 - total, right, wrong 데이터 pass
+- boolean 유형도 렌더링 완료
+- 디코딩 에러 처리 추가 
 
 
 

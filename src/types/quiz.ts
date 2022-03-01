@@ -30,10 +30,14 @@ export interface QuizProps {
 
 export interface Quiz {
     quiz: QuizContent,
-    right: number,
-    setRight: (v:number) => void,
-    wrong: number,
-    setWrong: (v:number) => void,
+}
+
+export class QuizResult implements Quiz {
+    quiz: QuizContent;
+    right: number;
+    setRight: (v:number) => void;
+    wrong: number;
+    setWrong: (v:number) => void;
 }
 
 export interface QuizContent {

@@ -1,5 +1,12 @@
+import { unescape } from "querystring";
+
 export const decode = (encodedStr:string) => {
-    return decodeURIComponent(decodeURI(encodedStr));
+    try {
+        return decodeURIComponent(decodeURI(encodedStr));
+    } catch (error) {
+        console.log(error, encodedStr);
+        return unescape(decodeURI(encodedStr));
+    }
 }
 
 export const uuidv4 = () => {
