@@ -21,7 +21,7 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
             let slide = document.getElementById(`next-${quiz.index}`);
             slide.addEventListener('click', (e:Event) => {
                 if(quiz.index === quiz.amount - 1) {
-                    Router.push({pathname: '/result', query: { total: quiz.amount, right: right, wrong: wrong }})
+                    Router.push({pathname: '/result', query: { category: quiz.category, level: quiz.difficulty, total: quiz.amount, right: right, wrong: wrong }})
                 } else {
                     const page = document.querySelector('.page');
                     page.parentElement.style.transform = `translateX(${-100 * (quiz.index + 1)}%)`;

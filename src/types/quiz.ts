@@ -62,3 +62,11 @@ export interface Note {
 export interface NextBtnProps {
     id: string,
 }
+
+export interface ChartProps {
+    category:string,
+    level:string,
+    total:number,
+    right:number,
+    wrong:number,
+}

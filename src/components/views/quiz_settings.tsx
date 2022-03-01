@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Wrapper, Container, Title, Label, Counter, Sign, Input, SelectGroup, SelectBox, Select } from "./quiz_settings.styles";
+import { Title, Label, Counter, Sign, Input, SelectGroup, SelectBox, Select } from "./quiz_settings.styles";
+import { Wrapper, Container } from '../layout/background';
 import { Modal, ModalBody, ModalFooter } from "../layout/modal";
 import { BtnPrimary, BtnArea } from "../molecules/button";
 import React, { useEffect, useState } from "react";
@@ -55,7 +56,10 @@ const QuizSetting:React.FC<Props> = ({props}) => {
 
     const onChangeCount = (value: number) => {
         if(count - 1 >= 1) setCount(value);
-        else alert('문제는 1개 이상 풀어주세요');
+        else {
+            alert('문제는 1개 이상 풀어주세요');
+            setCount(1);
+        }
     } 
 
     useEffect(() => {

@@ -15,7 +15,7 @@ export const Page = styled.div`
 export const Form = styled.div`
     position: sticky; //이거야 내가 원하던 거><
     border: 10px solid white;
-    width: 40vw;
+    width: 30vw;
     height: 70vh;
     margin: 0 auto;
     opacity: 0.75;

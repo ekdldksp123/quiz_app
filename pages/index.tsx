@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import axios from "axios";
 import { GetStaticProps } from 'next'
 import { InferGetStaticPropsType } from 'next'
@@ -47,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
         medium: anyMedium, 
         hard: anyHard
       });
-      
+
       const questions:Questions = { count: 10 };
       
       const quizProps: QuizProps = {
