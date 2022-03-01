@@ -20,18 +20,17 @@ const QuizSetting:React.FC<Props> = ({props}) => {
     const [ type, setType] = useState<string>('0');
     
     const checkNumberOfQuiz = () => {
-        if(category !== '0') {
-            const element = categories.find((v:Category) => v.id === parseInt(category));
-            if(element) {
-                switch(level) {
-                    case '0': compareAmount(element.total); break;
-                    case 'easy': compareAmount(element.easy); break;
-                    case 'medium': compareAmount(element.medium); break;
-                    case 'hard': compareAmount(element.hard); break;
-                }
+        const element = categories.find((v:Category) => v.id === parseInt(category));
+        if(element) {
+            switch(level) {
+                case '0': compareAmount(element.total); break;
+                case 'easy': compareAmount(element.easy); break;
+                case 'medium': compareAmount(element.medium); break;
+                case 'hard': compareAmount(element.hard); break;
             }
         }
     }
+
     const compareAmount = (real:number) => {
         if(real < count) {
             alert(`선택하신 주제와 난이도에 존재하는 퀴즈의 수는 ${real} 개 입니다.`);
@@ -40,19 +39,22 @@ const QuizSetting:React.FC<Props> = ({props}) => {
     }
 
     const onStart = () => {
-        if(count === 0) alert('문제는 1개 이상 풀어주세요');
-        else {
-            let uri = `https://opentdb.com/api.php?amount=${count}`;
-            if(category !== '0') uri += `&category=${category}`;
-            if(level !== '0') uri += `&difficulty=${level}`;
-            if(type !== '0') uri += `&type=${type}`;
-            
-            Router.push({
-                pathname: '/quiz',
-                query: { url: uri }
-            });
-        }
+        let uri = `https://opentdb.com/api.php?amount=${count}`;
+        if(category !== '0') uri += `&category=${category}`;
+        if(level !== '0') uri += `&difficulty=${level}`;
+        if(type !== '0') uri += `&type=${type}`;
+        uri += '&encode=url3986';
+        
+        Router.push({
+            pathname: '/quiz',
+            query: { url: uri }
+        });
     }
+
+    const onChangeCount = (value: number) => {
+        if(count - 1 >= 1) setCount(value);
+        else alert('문제는 1개 이상 풀어주세요');
+    } 
 
     useEffect(() => {
         checkNumberOfQuiz();
@@ -70,17 +72,17 @@ const QuizSetting:React.FC<Props> = ({props}) => {
                                 <Counter>
                                     <Sign 
                                         className="minus" 
-                                        onClick={() => setCount(count - 1)}
+                                        onClick={() => onChangeCount(count-1)}
                                     >-</Sign>
                                     <Input 
                                         css={responsive_input} 
-                                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => setCount(parseInt(e.target.value))} 
-                                        type='text' 
+                                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => onChangeCount(parseInt(e.target.value))} 
+                                        type='number'
                                         value={count}
                                     />
                                     <Sign 
                                         className="plus" 
-                                        onClick={()=> setCount(count + 1)}
+                                        onClick={() => setCount(count+1)}
                                     >+</Sign>
                                 </Counter>
                             </SelectBox>

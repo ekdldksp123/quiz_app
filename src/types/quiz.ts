@@ -28,3 +28,19 @@ export interface QuizProps {
     types: Type[],
 }
 
+export interface Quiz {
+    quiz: QuizContent,
+}
+
+export interface QuizContent {
+    index: number,
+    category: string,
+    correct?: string,
+    incorrect?: string[],
+    options: string[],
+    difficulty: string,
+    question: string,
+    type: string,
+    selected?: boolean,
+}
+

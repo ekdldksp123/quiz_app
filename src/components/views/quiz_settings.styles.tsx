@@ -31,7 +31,6 @@ export const Container = styled.div`
     animation: ${floating} 12s ease infinite !important;
 `;
 
-
 export const Title = styled.div`
     width: 100%;
     display: inline-block;
