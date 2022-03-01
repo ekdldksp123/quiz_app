@@ -30,10 +30,15 @@ export interface QuizProps {
 
 export interface Quiz {
     quiz: QuizContent,
+    right: number,
+    setRight: (v:number) => void,
+    wrong: number,
+    setWrong: (v:number) => void,
 }
 
 export interface QuizContent {
     index: number,
+    amount: number,
     category: string,
     correct?: string,
     incorrect?: string[],
@@ -41,6 +46,15 @@ export interface QuizContent {
     difficulty: string,
     question: string,
     type: string,
-    selected?: boolean,
+    selected?: string,
 }
 
+export interface Note {
+    date: Date,
+    wrong: QuizContent[],
+}
+
+
+export interface NextBtnProps {
+    id: string,
+}

@@ -18,6 +18,10 @@
 - 답 선택시 결과 바로 공개(색깔로 표시) 후 나머지 선택지 readOnly
 - 답 선택 후 바로 next 버튼 appear
 
+### 2022-03-02
+- next 버튼 클릭시 다음 페이지로 슬라이드
+- 문제 다 풀면 result 페이지로 라우팅
+- total, right, wrong 데이터 pass
 
 
 

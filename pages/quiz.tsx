@@ -6,31 +6,31 @@ import { InferGetServerSidePropsType } from 'next'
 import { useState, useEffect } from 'react';
 import QuizMain from '../src/components/views/solve_quizzes';
 import { QuizContent } from '../src/types/quiz';
-import { GetStaticProps } from 'next'
-import { InferGetStaticPropsType } from 'next'
-
 
 const Quiz: NextPage = ({ quizzes } : InferGetServerSidePropsType<typeof getServerSideProps>) => {
     
-    const [pageIndex, setPageIndex] = useState<number>(quizzes && 0);
     const [quizList, setQuizList] = useState<QuizContent[]>([]);
+    const [right, setRight] = useState<number>(0);
+    const [wrong, setWrong] = useState<number>(0);
     
     useEffect(() => {
         setQuizList(quizzes.results.map((v:any,i:number) => {
             if(v.type === 'boolean')  {
                 const quiz: QuizContent = {
                     index: i,
+                    amount: quizzes.results.length,
                     category: v.category,
                     question: v.question,
                     type: v.type,
                     difficulty: v.difficulty,
                     correct: v['correct_answer'],
-                    options: ['TRUE', 'FALSE']
+                    options: ['TRUE', 'FALSE'],
                 }
                 return quiz;
             } else {
                 const quiz: QuizContent = {
                     index: i,
+                    amount: quizzes.results.length,
                     category: v.category,
                     question: v.question,
                     type: v.type,
@@ -44,25 +44,21 @@ const Quiz: NextPage = ({ quizzes } : InferGetServerSidePropsType<typeof getServ
         }));
     }, []);
 
-    useEffect(() => {
-        let slides = document.querySelectorAll('.next');
-        let slidesCount = slides.length;
-        let index = pageIndex;
-
-        slides.forEach(slide => {
-            slide.addEventListener('click', (e:Event) => {
-                setPageIndex(index++ % slidesCount);
-                slide.parentElement.parentElement.style.transform = `translateX(${-100 * pageIndex}%)`;
-            });
-        });
-    },[pageIndex]);
-
     return (
         <Container>
             <Slide>
                 { quizList.length > 0 && 
                     quizList.map((v:QuizContent, i:number) => {
-                        return <QuizMain key={i} quiz={v} />
+                        return (
+                            <QuizMain 
+                                key={i} 
+                                quiz={v} 
+                                right={right} 
+                                setRight={setRight} 
+                                wrong={wrong} 
+                                setWrong={setWrong}
+                            />
+                        );
                     })    
                 }
             </Slide>

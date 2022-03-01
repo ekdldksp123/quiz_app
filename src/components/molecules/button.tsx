@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, keyframes } from "@emotion/react";
 import styled from '@emotion/styled';
+import { NextBtnProps } from "../../types/quiz";
 
 export const BtnArea = styled.div`
     width: 100%;
@@ -10,6 +11,16 @@ export const BtnArea = styled.div`
     justify-content: center;
     bottom: 0;
     margin-bottom: 40px;
+`
+
+export const BtnArea2 = styled.div`
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    bottom: 0;
+    margin-bottom: 25px;
 `
 
 export const BtnPrimary = styled.button `
@@ -57,3 +68,48 @@ export const BtnPrimary = styled.button `
         }
     }
 `
+
+const Next = styled.div`
+    margin-bottom: 25px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+`
+
+const slide = keyframes`
+    0% { opacity:0; transform: translateX(-15px); }	
+    20% { opacity:1; transform: translateX(-9px); }	
+    80% { opacity:1; transform: translateX(9px); }	
+    100% { opacity:0; transform: translateX(15px); }	
+}`
+
+const Sliding = styled.div`
+    position: absolute;
+    animation: ${slide} 2.0s linear infinite;
+`
+
+const Arrow = styled.div`
+    width: 25px;
+    height: 25px;
+    border: 3px solid;
+    border-color: #D3FF00 transparent transparent #D3FF00;
+    transform: rotate(135deg);
+`
+
+export const NextBtn:React.FC<NextBtnProps> = ({ id }) => {
+    return (
+        <Next id={id}>
+            <Sliding>
+                <Arrow/>
+            </Sliding>
+            <Sliding css={css`animation-delay: 0.6666s;`}>
+                <Arrow/>
+            </Sliding>
+            <Sliding css={css`animation-delay: 1.3333s;`}>
+                <Arrow/>
+            </Sliding>
+        </Next>
+    );
+}

@@ -65,10 +65,14 @@ export const Question = styled.div`
 `
 
 export const Content = styled.div`
-    flex-bias: 70%;
+    flex-bias: 70% !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow-y: auto !important;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 export const Radio = styled.p`
@@ -139,3 +143,4 @@ export const Label = styled.label`
         opacity: 1;
     }
 `
+
