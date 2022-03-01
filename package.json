@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
     "deploy": "gh-pages -d build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
