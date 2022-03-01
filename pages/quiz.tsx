@@ -8,7 +8,6 @@ import QuizMain from '../src/components/views/solve_quizzes';
 import { QuizContent } from '../src/types/quiz';
 
 const Quiz: NextPage = ({ quizzes } : InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    console.log(quizzes);
     
     const [pageIndex, setPageIndex] = useState<number>(quizzes && 0);
     const [quizList, setQuizList] = useState<QuizContent[]>([]);

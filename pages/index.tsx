@@ -47,7 +47,6 @@ export const getStaticProps: GetStaticProps = async () => {
         medium: anyMedium, 
         hard: anyHard
       });
-      console.log(categories);
 
       const questions:Questions = { count: 10 };
       

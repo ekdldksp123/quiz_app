@@ -5,6 +5,7 @@ const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   reactStrictMode: true,
   assetPrefix: isProd ? 'https://ekdldksp123.github.io/quiz_app' : '',
+  staticPageGenerationTimeout: 120,
   images: {
     loader: 'akamai',
     path: '',
