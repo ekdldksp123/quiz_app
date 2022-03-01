@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
         medium: anyMedium, 
         hard: anyHard
       });
-
+      
       const questions:Questions = { count: 10 };
       
       const quizProps: QuizProps = {

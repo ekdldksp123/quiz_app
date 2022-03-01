@@ -68,7 +68,7 @@ const QuizMain: React.FC<Quiz> = ({ quiz }) => {
         } else { // boolean
             return (
                 <>
-
+                
                 </>
             );
         }

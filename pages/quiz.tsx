@@ -6,6 +6,9 @@ import { InferGetServerSidePropsType } from 'next'
 import { useState, useEffect } from 'react';
 import QuizMain from '../src/components/views/solve_quizzes';
 import { QuizContent } from '../src/types/quiz';
+import { GetStaticProps } from 'next'
+import { InferGetStaticPropsType } from 'next'
+
 
 const Quiz: NextPage = ({ quizzes } : InferGetServerSidePropsType<typeof getServerSideProps>) => {
     
@@ -67,7 +70,7 @@ const Quiz: NextPage = ({ quizzes } : InferGetServerSidePropsType<typeof getServ
         );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+const serverSideProps: GetServerSideProps = async (context) => {
     const url = context.query.url as string;
     
     const res = await fetch(url);
@@ -84,6 +87,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     //pageProps로 넘길 데이터 
     return { props :  { quizzes: data } };
 }
+
+export const getServerSideProps = process.env.SKIP_SSR ? undefined : serverSideProps;
 
 export default Quiz;
 
