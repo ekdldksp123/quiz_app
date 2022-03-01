@@ -38,17 +38,19 @@ const QuizSetting:React.FC<Props> = ({props}) => {
         } 
     }
 
-    const onStart = () => {
+    const onStart = async () => {
         let uri = `https://opentdb.com/api.php?amount=${count}`;
         if(category !== '0') uri += `&category=${category}`;
         if(level !== '0') uri += `&difficulty=${level}`;
         if(type !== '0') uri += `&type=${type}`;
         uri += '&encode=url3986';
         
-        Router.push({
-            pathname: '/quiz',
-            query: { url: uri }
-        });
+        const res = await fetch(uri);
+        const data = await res.json();
+
+        window.localStorage.setItem('quizzes', JSON.stringify(data.results));
+        const quizzes = window.localStorage.getItem('quizzes');
+        Router.push({ pathname: '/quiz' });
     }
 
     const onChangeCount = (value: number) => {

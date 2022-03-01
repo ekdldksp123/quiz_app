@@ -24,6 +24,7 @@
 - total, right, wrong 데이터 pass
 - boolean 유형도 렌더링 완료
 - 디코딩 에러 처리 추가 
+- localStorage 사용
 
 
 

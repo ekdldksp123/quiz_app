@@ -20,3 +20,7 @@ export const leftPad = (idx:number) => {
     if(idx > 9) return `${idx}`;
     else return `0${idx}`;
 }
+
+export const shuffle = (arr:string[]) => {
+    return arr.sort(() => Math.random() - 0.5);
+}
