@@ -4,22 +4,29 @@ import styled from '@emotion/styled';
 import { useEffect, useState } from "react";
 import { Wrapper, Container } from '../layout/background';
 import { Board } from "../layout/modal";
+import { Title, Label } from "../molecules/caption";
+import { ChartArea, Timer } from './quiz_result.styles';
 import { ChartProps } from "../../types/quiz";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart, ArcElement } from 'chart.js'
-import { renderChart } from "./quiz_result.styles";
+import { renderChart } from '../../lib/chart';
 Chart.register(ArcElement);
 Chart.register(ChartDataLabels);
 
-const ChartAndTime:React.FC<ChartProps> = ({ category, level, total, right, wrong }) => {
+const ChartAndTime:React.FC<ChartProps> = ({ time, render, category, level, right, wrong }) => {
 
-    
+    useEffect(() => {
+        if(render) renderChart(category, level, right, wrong);
+    },[render]);
+
     return (
         <Wrapper>
             <Container>
                 <Board>
+                    <Title>Quiz Result</Title>
+                    <Timer>{time}</Timer>
                     <ChartArea>
-                        { renderChart(category, level, right, wrong) }
+                        <canvas id="myChart" css={chart}/>
                     </ChartArea>
                 </Board>
             </Container>
@@ -29,12 +36,13 @@ const ChartAndTime:React.FC<ChartProps> = ({ category, level, total, right, wron
 
 export default ChartAndTime;
 
-const ChartArea = styled.div`
-    padding: 40px;
-    flex-bias: 50% important;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+const chart = css`
+    width: 620px;
+    height: auto;
+
+    @media (max-width: 1200px) {
+        width: 400px;
+        height: auto;
+    }
 `
 

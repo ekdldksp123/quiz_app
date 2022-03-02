@@ -1,15 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import type { NextPage } from 'next'
-import { GetServerSideProps  } from 'next'
-import { InferGetServerSidePropsType } from 'next'
 import { useState, useEffect } from 'react';
 import QuizMain from '../src/components/views/solve_quizzes';
 import { shuffle } from '../src/lib/common';
+import useTimerActions from '../src/lib/hook/useTimerAction';
 import { QuizContent } from '../src/types/quiz';
 
 const Quiz: NextPage = () => {
-    
+    const timerActions = useTimerActions();
     const [quizList, setQuizList] = useState<QuizContent[]>([]);
     const [right, setRight] = useState<number>(0);
     const [wrong, setWrong] = useState<number>(0);
@@ -46,6 +45,8 @@ const Quiz: NextPage = () => {
                     return quiz;
                 }
             }));
+            /** 타이머 시작 */
+            timerActions.onStart();
         }
     }, []);
 

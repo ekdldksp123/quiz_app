@@ -64,9 +64,10 @@ export interface NextBtnProps {
 }
 
 export interface ChartProps {
+    time:string,
     category:string,
     level:string,
-    total:number,
     right:number,
     wrong:number,
+    render:boolean,
 }

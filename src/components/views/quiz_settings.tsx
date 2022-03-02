@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Title, Label, Counter, Sign, Input, SelectGroup, SelectBox, Select } from "./quiz_settings.styles";
+import { Counter, Sign, Input, SelectGroup, SelectBox, Select } from "./quiz_settings.styles";
+import { Title, Label } from "../molecules/caption";
 import { Wrapper, Container } from '../layout/background';
 import { Modal, ModalBody, ModalFooter } from "../layout/modal";
 import { BtnPrimary, BtnArea } from "../molecules/button";
@@ -50,7 +51,6 @@ const QuizSetting:React.FC<Props> = ({props}) => {
         const data = await res.json();
 
         window.localStorage.setItem('quizzes', JSON.stringify(data.results));
-        const quizzes = window.localStorage.getItem('quizzes');
         Router.push({ pathname: '/quiz' });
     }
 

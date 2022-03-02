@@ -16,6 +16,6 @@
     "incremental": true,
     "checkJs": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/chart.js"],
   "exclude": ["node_modules"]
 }

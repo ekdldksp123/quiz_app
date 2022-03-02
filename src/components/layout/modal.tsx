@@ -21,10 +21,12 @@ export const Modal = styled.div`
 export const Board = styled.div`
     position: relative;
     margin: 0 auto;
-    width: 60vw;
-    height: 65vh;
+    padding-top: 20px;
+    width: 50vw;
+    height: 80vh;
     border-radius: 1.5rem;
     display: flex;
+    flex-direction: column;
     background-color: #fff;
     transition: .8s;
     &:hover {

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from "@emotion/react";
+import { css } from "@emotion/react";
 import React, { useState, useEffect } from 'react';
-import { leftPad, decode, uuidv4 } from "../../lib/common";
+import { leftPad, decode } from "../../lib/common";
 import { Page, Form, Body, Head, No, Question, Content } from './solve_quizzes.styles';
 import { NextBtn, BtnArea2 } from "../molecules/button";
 import { ModalFooter } from "../layout/modal";
@@ -21,7 +21,7 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
             let slide = document.getElementById(`next-${quiz.index}`);
             slide.addEventListener('click', (e:Event) => {
                 if(quiz.index === quiz.amount - 1) {
-                    Router.push({pathname: '/result', query: { category: quiz.category, level: quiz.difficulty, total: quiz.amount, right: right, wrong: wrong }})
+                    Router.push({pathname: '/result', query: { category: quiz.category, level: quiz.difficulty, right: right, wrong: wrong }})
                 } else {
                     const page = document.querySelector('.page');
                     page.parentElement.style.transform = `translateX(${-100 * (quiz.index + 1)}%)`;
@@ -43,8 +43,13 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
     }
 
     const onRadioSelect = (value:string) => {
-        if(value === quiz.correct) setRight(right+1);
-        else setWrong(wrong+1);
+        if(value === quiz.correct){
+            setRight(right+1); 
+            console.log(right);
+        } else {
+            setWrong(wrong+1); 
+            console.log(wrong);
+        };
 
         setSelected(value);
         if(!choose) setChoose(!choose);
