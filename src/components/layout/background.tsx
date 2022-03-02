@@ -30,3 +30,10 @@ export const Container = styled.div`
     opacity: 0.7;
     animation: ${floating} 12s ease infinite !important;
 `;
+
+export const Footer = styled.div`
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`

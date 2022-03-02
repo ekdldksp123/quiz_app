@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import styled from '@emotion/styled';
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
+import { Container, Slide } from '../src/components/layout/slide';
 import QuizMain from '../src/components/views/solve_quizzes';
 import { shuffle } from '../src/lib/common';
 import useTimerActions from '../src/lib/hook/useTimerAction';
@@ -73,22 +72,4 @@ const Quiz: NextPage = () => {
 }
 
 export default Quiz;
-
-const Container = styled.div`
-    font-family: inherit;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;    
-    overflow: hidden;
-    background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-    color:white;
-`
-
-const Slide = styled.div`
-    height: 100% !important;
-    display: flex;
-    flex-wrap: nowrap;
-    transition: all .5s linear;
-    transform: translateX(0);
-`
 

@@ -24,7 +24,6 @@ export const BtnArea2 = styled.div`
     margin-bottom: 25px;
 `
 
-
 export const BtnArea3 = styled.nav`
     width: 100%;
     height: 50px;
@@ -184,7 +183,6 @@ export const NoteBtn:React.FC = () => {
     const onTakeNotes = () => {
         Router.push({pathname: '/note'});
     }
-
     return <Note id="note" onClick={() => onTakeNotes()}>Take Notes</Note>;
 }
 
@@ -230,5 +228,28 @@ const Note = styled.a`
     &:hover::after,
     &:hover::before {
         right: -5px;
+    }
+`
+
+export const ArrowBtn = styled.a`
+    margin: 0;
+    padding: 40px !important;
+    z-index: 11;
+    cursor: pointer;
+    position: absolute;
+    top: 50vh;
+    width: auto;
+    padding: 16px;
+    margin-top: -60px;
+    color: white;
+    font-weight: bold;
+    font-size: 4rem;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+    -webkit-user-select: none;    
+
+    transition: transform .2s;
+    &:hover {
+        transform: scale(1.5);
     }
 `

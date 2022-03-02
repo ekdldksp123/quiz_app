@@ -32,6 +32,12 @@ export interface Quiz {
     quiz: QuizContent,
 }
 
+export class NoteProps implements Quiz {
+    quiz: QuizContent;
+    index: number;
+    amount: number;
+}
+
 export class QuizResult implements Quiz {
     quiz: QuizContent;
     right: number;
@@ -41,7 +47,7 @@ export class QuizResult implements Quiz {
 }
 
 export interface QuizContent {
-    index: number,
+    index?: number,
     amount: number,
     category: string,
     correct?: string,
@@ -52,12 +58,6 @@ export interface QuizContent {
     type: string,
     selected?: string,
 }
-
-export interface Note {
-    date: Date,
-    wrong: QuizContent[],
-}
-
 
 export interface NextBtnProps {
     id: string,

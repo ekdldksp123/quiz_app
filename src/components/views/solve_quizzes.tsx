@@ -1,13 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React, { useState, useEffect } from 'react';
-import { leftPad, decode, formatDateToString } from "../../lib/common";
-import { Page, Form, Body, Head, No, Question, Content } from './solve_quizzes.styles';
+import Router from 'next/router'
+import { Page } from "../layout/slide";
+import { Form, Body, Head, No, Question, Content } from './solve_quizzes.styles';
 import { NextBtn, BtnArea2 } from "../molecules/button";
 import { ModalFooter } from "../layout/modal";
 import { QuizContent, QuizResult } from "../../types/quiz";
-import Router from 'next/router'
 import { Options } from "../layout/options";
+import { leftPad, decode } from "../../lib/common";
 
 const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong }) => {
     const [selected, setSelected] = useState<string>('');

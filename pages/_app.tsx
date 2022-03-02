@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
         <Head>
-          <title>Quiz</title>
+          <title>Hello Quiz</title>
           <link rel="icon" href="/favicon.ico" />
           <style>{globalCss}</style>
         </Head>

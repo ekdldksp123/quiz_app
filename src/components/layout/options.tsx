@@ -228,3 +228,47 @@ const Label = styled.label`
         opacity: 1;
     }
 `
+
+export const NoteOptions:React.FC<Quiz> = ({ quiz }) => {
+    if(quiz.options.length !== 2) { // multiple
+        return (
+            <>
+            {quiz.options.map((v:string) => {
+                return (
+                    <Radio key={uuidv4()} isCorrect={v === quiz.correct}>
+                        <input 
+                            key={uuidv4()}
+                            type='radio' 
+                            className={`radio-group-${quiz.index}`} 
+                            value={decode(v)} 
+                            checked={decode(v) === quiz.selected || v === quiz.correct }
+                            readOnly={true}
+                        />
+                        <Label key={uuidv4()}>{decode(v)}</Label>
+                    </Radio>
+                );
+            })}
+            </>
+        );
+    } else { // boolean
+        return (
+            <RadioBox>
+                {quiz.options.map((v:string) => {
+                    return (
+                        <InlinRadio key={uuidv4()} isCorrect={v === quiz.correct}>
+                            <input 
+                                type='radio'
+                                key={uuidv4()}
+                                className={`radio-group-${quiz.index}`} 
+                                value={decode(v)} 
+                                checked={decode(v) === quiz.selected || v === quiz.correct }
+                                readOnly={true}
+                            />
+                            <Label key={uuidv4()}>{decode(v)}</Label>
+                        </InlinRadio>
+                    )
+                })}
+            </RadioBox>
+        );
+    }
+}

@@ -21,3 +21,13 @@ export const Label = styled.label`
     font-size: 1.35rem;
     color: rgba(255,74,86, 1.0);
 `
+
+export const Paging = styled.label`
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    padding: 40px !important;
+    font-size: 1.35rem;
+    color: #fff;
+`
+
