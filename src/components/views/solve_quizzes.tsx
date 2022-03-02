@@ -16,7 +16,7 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
     useEffect(() => {
         if(choose) {
             const radios = document.querySelectorAll(`.radio-group-${quiz.index}`);
-            radios.forEach(e => e.ariaReadOnly = "true");
+            radios.forEach(e => e.ariaReadOnly = "true"); // 답 선택시 나머지 선택지 read only 처리
 
             let slide = document.getElementById(`next-${quiz.index}`);
             slide.addEventListener('click', (e:Event) => {
@@ -46,10 +46,9 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
         setSelected(value);
         if(!choose) setChoose(!choose);
 
-        if(value === quiz.correct){
-            setRight(right+1); 
-        } else {
-            setWrong(wrong+1); 
+        if(value === decode(quiz.correct)) setRight(right + 1); 
+        else {
+            setWrong(wrong + 1); 
             quiz.selected = value; //오답 기록해놓기
             
             if(window.localStorage.hasOwnProperty('notes')) {
@@ -72,10 +71,10 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
                     </Head>
                     <Content>
                         <Options 
-                            quiz={quiz} 
-                            choose={choose} 
-                            selected={selected} 
-                            onRadioSelect={onRadioSelect}
+                            quiz={ quiz } 
+                            choose={ choose } 
+                            selected={ selected } 
+                            onRadioSelect={ onRadioSelect }
                         />
                         { renderNextBtn() }
                     </Content>
