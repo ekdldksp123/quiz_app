@@ -25,3 +25,4 @@ export const Timer = styled.div`
     border-top: 2px solid rgba(255,74,86, 1.0);
     border-bottom: 2px solid rgba(255,74,86, 1.0);
 `
+

@@ -18,7 +18,6 @@ import { RootState } from "../redux";
 const getTimerFromStore = (state: RootState) => state.timer;
 
 export function* start() {
-    console.log('timer start');
     yield put(TimerActions.watch());
 }
 
@@ -26,7 +25,6 @@ export function* watcher() {
     while (yield take(TimerActions.watch)) {
         try {
             yield put(TimerActions.setStatus({ status: "play" }));
-            console.log('timer play');
             const worker = yield fork(connectChannel);
             yield take(TimerActions.stop);
             yield cancel(worker);
@@ -65,7 +63,6 @@ function* connectChannel() {
 
             if (pause) {
                 yield put(TimerActions.setStatus({ status: "pause" }));
-                console.log('timer pause');
                 // yield take(TimerActions.restart);
                 // yield put(TimerActions.setStatus({ status: "play" }));
             }

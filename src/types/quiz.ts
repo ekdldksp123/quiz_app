@@ -69,5 +69,4 @@ export interface ChartProps {
     level:string,
     right:number,
     wrong:number,
-    render:boolean,
 }

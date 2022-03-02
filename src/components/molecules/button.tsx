@@ -2,6 +2,7 @@
 import { css, keyframes } from "@emotion/react";
 import styled from '@emotion/styled';
 import { NextBtnProps } from "../../types/quiz";
+import Router from 'next/router'
 
 export const BtnArea = styled.div`
     width: 100%;
@@ -19,6 +20,18 @@ export const BtnArea2 = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: end;
+    bottom: 0;
+    margin-bottom: 25px;
+`
+
+
+export const BtnArea3 = styled.nav`
+    width: 100%;
+    height: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     bottom: 0;
     margin-bottom: 25px;
 `
@@ -104,12 +117,118 @@ export const NextBtn:React.FC<NextBtnProps> = ({ id }) => {
             <Sliding>
                 <Arrow/>
             </Sliding>
-            <Sliding css={css`animation-delay: 0.6666s;`}>
+            <Sliding css={css`-webkit-animation-delay:0.6666s; animation-delay: 0.6666s;`}>
                 <Arrow/>
             </Sliding>
-            <Sliding css={css`animation-delay: 1.3333s;`}>
+            <Sliding css={css`-webkit-animation-delay:1.3333s; animation-delay: 1.3333s;`}>
                 <Arrow/>
             </Sliding>
         </Next>
     );
 }
+
+
+export const BackBtn:React.FC = () => {
+    const onGoBack = () => {
+        Router.push({pathname: '/quiz'});
+    }
+    return <Back id="retry" onClick={() => onGoBack()}>Try Again</Back>
+}
+
+const Back = styled.a`
+    cursor: pointer;
+    color: #11ACED;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Helvetica Neue;
+    line-height: 0;
+    padding-left: 20px;
+    position: relative;
+
+    &::before, 
+    &::after {
+        content: "";
+        display: block;
+        height: 1rem;
+        left: 0px;
+        position: absolute;
+        top: 50%;
+        transition: left 0.2s;
+    }
+
+    &::after {
+        border-color: #11ACED;
+        border-style: solid;
+        border-width: 0 0 2px 2px;
+        height: 6px;
+        margin-top: -3px;
+        width: 6px;
+
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    &::before {
+        background: #11ACED;
+        height: 2px;
+        width: 11px;
+    }
+
+    &:hover::after,
+    &:hover::before {
+        left: -5px;
+    }
+`
+
+export const NoteBtn:React.FC = () => {
+    const onTakeNotes = () => {
+        Router.push({pathname: '/note'});
+    }
+
+    return <Note id="note" onClick={() => onTakeNotes()}>Take Notes</Note>;
+}
+
+const Note = styled.a`
+    text-align: right !important;
+    cursor: pointer;
+    color: #11ACED;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Helvetica Neue;
+    line-height: 0;
+    padding-right: 20px;
+    position: relative;
+
+    &::before, 
+    &::after {
+        content: "";
+        display: block;
+        right: 0px;
+        position: absolute;
+        top: 50%;
+        transition: right 0.2s;
+    }
+
+    &::after {
+        border-color: #11ACED;
+        border-style: solid;
+        border-width: 0 0 2px 2px;
+        height: 6px;
+        margin-top: -3px;
+        width: 6px;
+
+        transform: rotate(-135deg );
+        -webkit-transform: rotate(-135deg );
+    }
+
+    &::before {
+        background: #11ACED;
+        height: 2px;
+        width: 11px;
+    }
+
+    &:hover::after,
+    &:hover::before {
+        right: -5px;
+    }
+`

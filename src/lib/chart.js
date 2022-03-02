@@ -1,25 +1,39 @@
 import { decode } from "./common";
 
-export const renderChart = (category, level, right, wrong) => {
-    const xValues = ['Correct', 'Wrong'];
-    const yValues = [right, wrong];
-    const bgColors = ['rgb(54, 162, 235)','rgb(255, 99, 132)'];
+var chart;
 
-    var myChart = new Chart("myChart", {
-        type: "doughnut",
-        data: {
-            labels: xValues,
-            datasets: [{
-              backgroundColor: bgColors,
-              data: yValues
-            }]
-          },
-          options: {
-            title: {
-              display: true,
-              text: `[Category] ${decode(category)} | [Level] ${decode(level).toUpperCase()}`
-            }
-          }
-    })
+export const setChartData = (category, level, right, wrong) => {
 
-}
+  const xValues = ['Correct', 'Wrong'];
+  const yValues = [right, wrong];
+  const bgColors = ['rgb(54, 162, 235)','rgb(255, 99, 132)'];
+
+  const config = {
+    type: "doughnut",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: bgColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: `[ Category ] ${decode(category)} | [ Level ] ${decode(level).toUpperCase()}`
+      }
+    }
+  };
+
+  return config;
+};
+
+export const renderChart = (config) => {
+    if(chart) chart.destroy();
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+    chart = new Chart(ctx, config);
+
+    return chart;
+};
+

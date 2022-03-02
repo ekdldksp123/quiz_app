@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React, { useState, useEffect } from 'react';
-import { leftPad, decode } from "../../lib/common";
+import { leftPad, decode, formatDateToString } from "../../lib/common";
 import { Page, Form, Body, Head, No, Question, Content } from './solve_quizzes.styles';
 import { NextBtn, BtnArea2 } from "../molecules/button";
 import { ModalFooter } from "../layout/modal";
-import { QuizResult } from "../../types/quiz";
+import { QuizContent, QuizResult } from "../../types/quiz";
 import Router from 'next/router'
 import { Options } from "../layout/options";
 
@@ -43,16 +43,23 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
     }
 
     const onRadioSelect = (value:string) => {
-        if(value === quiz.correct){
-            setRight(right+1); 
-            console.log(right);
-        } else {
-            setWrong(wrong+1); 
-            console.log(wrong);
-        };
-
         setSelected(value);
         if(!choose) setChoose(!choose);
+
+        if(value === quiz.correct){
+            setRight(right+1); 
+        } else {
+            setWrong(wrong+1); 
+            quiz.selected = value; //오답 기록해놓기
+            
+            if(window.localStorage.hasOwnProperty('notes')) {
+
+                const notes:QuizContent[] = JSON.parse(window.localStorage.getItem('notes'));
+                const newNotes:QuizContent[] = [quiz].concat(notes);
+                window.localStorage.setItem('notes', JSON.stringify(newNotes));
+                
+            } else window.localStorage.setItem('notes', JSON.stringify(quiz));
+        };
     }
 
     return (

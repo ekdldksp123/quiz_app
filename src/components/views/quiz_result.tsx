@@ -1,23 +1,31 @@
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from "@emotion/react";
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { Wrapper, Container } from '../layout/background';
-import { Board } from "../layout/modal";
-import { Title, Label } from "../molecules/caption";
+import { Board, ModalFooter } from "../layout/modal";
+import { Title } from "../molecules/caption";
 import { ChartArea, Timer } from './quiz_result.styles';
 import { ChartProps } from "../../types/quiz";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart, ArcElement } from 'chart.js'
-import { renderChart } from '../../lib/chart';
+import { NoteBtn, BackBtn, BtnArea3 } from "../molecules/button";
+import { renderChart, setChartData } from "../../lib/chart";
+import { useScript } from "../../lib/hook/useScript";
 Chart.register(ArcElement);
 Chart.register(ChartDataLabels);
 
-const ChartAndTime:React.FC<ChartProps> = ({ time, render, category, level, right, wrong }) => {
+const ChartAndTime:React.FC<ChartProps> = ({ time, category, level, right, wrong }) => {
+    
+    const status = useScript('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js');
+
+    const initChart = () => {
+        const config = setChartData(category, level, right, wrong);
+        renderChart(config);
+    }
 
     useEffect(() => {
-        if(render) renderChart(category, level, right, wrong);
-    },[render]);
+        if (status === "ready") initChart();
+    }, [status]);
 
     return (
         <Wrapper>
@@ -28,10 +36,16 @@ const ChartAndTime:React.FC<ChartProps> = ({ time, render, category, level, righ
                     <ChartArea>
                         <canvas id="myChart" css={chart}/>
                     </ChartArea>
+                    <ModalFooter>
+                        <BtnArea3>
+                            <BackBtn/>
+                            <NoteBtn/>
+                        </BtnArea3>
+                    </ModalFooter>
                 </Board>
             </Container>
-        </Wrapper>
-    )    
+        </Wrapper> 
+    );
 }
 
 export default ChartAndTime;
