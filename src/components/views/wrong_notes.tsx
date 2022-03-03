@@ -14,7 +14,7 @@ const WrongNote:React.FC<NoteProps> = ({ quiz, index, amount }) => {
     const clearStorage = () => {
         window.localStorage.clear();
         alert('스토리지가 정리되었습니다.');
-        Router.push({ pathname: '/' });
+        Router.push({ pathname: '/quiz_app/' });
     }
 
     return (

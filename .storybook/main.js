@@ -4,16 +4,18 @@ module.exports = {
   features: {
     interactionsDebugger: true,
   },
-  "stories": [
+  stories: [
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
     "@storybook/addon-interactions",
+    "@storybook/addon-actions", 
+    "@storybook/addon-controls",
   ],
   webpackFinal: async (config) => {
     // node_mules폴더와 styles 폴더 안의 모듈을 인식할 수 있게 함

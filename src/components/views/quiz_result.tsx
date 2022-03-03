@@ -26,7 +26,7 @@ const ChartAndTime:React.FC<ChartProps> = ({ time, category, level, right, wrong
 
     const onClickHome = () => {
         window.localStorage.removeItem('quizzes');
-        Router.push({ pathname: '/' });
+        Router.push({ pathname: '/quiz_app/' });
     }
 
     useEffect(() => {

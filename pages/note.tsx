@@ -23,7 +23,7 @@ const Note: NextPage = () => {
             }));
         } else {
             alert('틀린 문제가 없습니다. 홈으로 돌아갑니다.');
-            Router.push({ pathname: '/' });
+            Router.push({ pathname: '/quiz_app/' });
         }
     },[]);
 
