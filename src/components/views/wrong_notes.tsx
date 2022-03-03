@@ -12,12 +12,11 @@ const WrongNote:React.FC<NoteProps> = ({ quiz, index, amount }) => {
 
     return (
         <Page className="page">
-            
             <Form css={responsive_form}>
                 <Body>
                     <Head>
-                        <No>{leftPad(quiz.index + 1)}</No>
-                        <Question>{decode(quiz.question)}</Question>
+                        <No css={responsive_No}>{leftPad(quiz.index + 1)}</No>
+                        <Question css={responsive_question}>{decode(quiz.question)}</Question>
                     </Head>
                     <Content>
                         <NoteOptions quiz={quiz}/>
@@ -36,5 +35,17 @@ export default WrongNote;
 const responsive_form = css`
     @media (max-width: 1200px) {
         width: 65vw;
+    }
+`
+
+const responsive_question = css`
+    @media (max-width: 1200px) {
+        font-size: 1.5rem;
+    }
+`
+
+const responsive_No = css`
+    @media (max-width: 1200px) {
+        font-size: 3.5rem;
     }
 `

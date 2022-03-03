@@ -35,11 +35,3 @@ export const toHHMMSS = (time: number) => {
     
     return `${format(hours)}:${format(minutes)}:${format(seconds)}`;
 }
-
-export const formatDateToString = (date:Date, delimiter:string = '-') => {
-    const year = date.getFullYear(); 
-    const month = leftPad(date.getMonth() + 1); 
-    const day = leftPad(date.getDate());
-
-    return [year, month, day].join(delimiter);
-}

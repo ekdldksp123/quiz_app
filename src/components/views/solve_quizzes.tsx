@@ -67,8 +67,8 @@ const QuizMain: React.FC<QuizResult> = ({ quiz, right, setRight, wrong, setWrong
             <Form css={responsive_form}>
                 <Body>
                     <Head>
-                        <No>{leftPad(quiz.index + 1)}</No>
-                        <Question>{decode(quiz.question)}</Question>
+                        <No css={responsive_No}>{leftPad(quiz.index + 1)}</No>
+                        <Question css={responsive_question}>{decode(quiz.question)}</Question>
                     </Head>
                     <Content>
                         <Options 
@@ -93,5 +93,15 @@ const responsive_form = css`
     }
 `
 
+const responsive_question = css`
+    @media (max-width: 1200px) {
+        font-size: 1.5rem;
+    }
+`
 
+const responsive_No = css`
+    @media (max-width: 1200px) {
+        font-size: 3.5rem;
+    }
+`
 

@@ -30,7 +30,7 @@ const ChartAndTime:React.FC<ChartProps> = ({ time, category, level, right, wrong
     return (
         <Wrapper>
             <Container>
-                <Board>
+                <Board css={responsive_board}>
                     <Title>Quiz Result</Title>
                     <Timer>{time}</Timer>
                     <ChartArea>
@@ -51,12 +51,17 @@ const ChartAndTime:React.FC<ChartProps> = ({ time, category, level, right, wrong
 export default ChartAndTime;
 
 const chart = css`
-    width: 620px;
+    width: 100%;
     height: auto;
-
+`
+const responsive_board = css`
     @media (max-width: 1200px) {
-        width: 400px;
-        height: auto;
+        width: 70vw;
+        height: 65vh;
+    }
+
+    @media (max-width: 800px) {
+        width: 80vw;
+        height: 60vh;
     }
 `
-

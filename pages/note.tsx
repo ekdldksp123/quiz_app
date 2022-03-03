@@ -45,7 +45,7 @@ const Note: NextPage = () => {
             prev.addEventListener('click', (e:Event) => {
                 if(pageIndex - 1 >= 0) {
                     const page = document.querySelectorAll('.page')[pageIndex];
-                    page.parentElement.style.transform = `translateX(${((pageIndex - 1) % notes.length)/100}%)`;
+                    page.parentElement.style.transform = `translateX(${ -100 * (pageIndex - 1) }%)`;
                     setPageIndex(pageIndex - 1);
                 } else {
                     e.preventDefault();

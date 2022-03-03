@@ -71,7 +71,7 @@ const QuizSetting:React.FC<Props> = ({props}) => {
             <Container>
                 <Modal css={responsive_modal}>
                     <ModalBody>
-                        <Title>Hello Quiz</Title>
+                        <Title css={responsive_title}>Hello Quiz</Title>
                         <SelectGroup>
                             <Label css={responsive_label}>Number of Quiz</Label>
                             <SelectBox>
@@ -144,6 +144,13 @@ const QuizSetting:React.FC<Props> = ({props}) => {
 
 export default QuizSetting;
 
+
+const responsive_title = css`
+    @media (max-width: 1200px) {
+        font-size: 2.25rem;
+    }
+`
+
 const responsive_modal = css`
     @media (max-width: 1200px) {
         width: 50vw;
@@ -153,7 +160,6 @@ const responsive_modal = css`
 const responsive_label = css`
     @media (max-width: 1200px) {
         font-size: 1.25rem;
-        font-size: 1.3rem;
     }
 `
 
