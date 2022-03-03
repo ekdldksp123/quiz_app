@@ -20,7 +20,7 @@ const WrongNote:React.FC<NoteProps> = ({ quiz, index, amount }) => {
     return (
         <Page className="page">
             <Link onClick={() => clearStorage()}>Remove All</Link>
-            <Home onClick={() => Router.push({ pathname: '/' })} />
+            <Home onClick={() => Router.push({ pathname: '/quiz_app/' })} />
             <Form css={responsive_form}>
                 <Body>
                     <Head>
