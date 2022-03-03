@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { Wrapper, Container } from '../layout/background';
 import { Board, ModalFooter } from "../layout/modal";
-import { Title } from "../molecules/caption";
+import { Link, Title } from "../molecules/caption";
 import { ChartArea, Timer } from './quiz_result.styles';
 import { ChartProps } from "../../types/quiz";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -11,6 +11,7 @@ import { Chart, ArcElement } from 'chart.js'
 import { NoteBtn, BackBtn, BtnArea3 } from "../molecules/button";
 import { renderChart, setChartData } from "../../lib/chart";
 import { useScript } from "../../lib/hook/useScript";
+import Router from "next/router";
 Chart.register(ArcElement);
 Chart.register(ChartDataLabels);
 
@@ -23,6 +24,11 @@ const ChartAndTime:React.FC<ChartProps> = ({ time, category, level, right, wrong
         renderChart(config);
     }
 
+    const onClickHome = () => {
+        window.localStorage.removeItem('quizzes');
+        Router.push({ pathname: '/' });
+    }
+
     useEffect(() => {
         if (status === "ready") initChart();
     }, [status]);
@@ -30,6 +36,7 @@ const ChartAndTime:React.FC<ChartProps> = ({ time, category, level, right, wrong
     return (
         <Wrapper>
             <Container>
+                <Link onClick={() => onClickHome()}>Quiz Home</Link>
                 <Board css={responsive_board}>
                     <Title>Quiz Result</Title>
                     <Timer>{time}</Timer>

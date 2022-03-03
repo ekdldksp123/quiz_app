@@ -181,6 +181,7 @@ const Back = styled.a`
 
 export const NoteBtn:React.FC = () => {
     const onTakeNotes = () => {
+        window.localStorage.removeItem('quizzes'); // quiz 데이터 storage 에서 지우기
         Router.push({pathname: '/note'});
     }
     return <Note id="note" onClick={() => onTakeNotes()}>Take Notes</Note>;

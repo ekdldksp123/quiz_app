@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Counter, Sign, Input, SelectGroup, SelectBox, Select } from "./quiz_settings.styles";
-import { Title, Label } from "../molecules/caption";
+import { Title, Label, Link } from "../molecules/caption";
 import { Wrapper, Container } from '../layout/background';
 import { Modal, ModalBody, ModalFooter } from "../layout/modal";
 import { BtnPrimary, BtnArea } from "../molecules/button";
@@ -62,6 +62,14 @@ const QuizSetting:React.FC<Props> = ({props}) => {
         }
     } 
 
+    const onLinkClick = () => {
+        if(window.localStorage.hasOwnProperty('notes')) {
+            Router.push({ pathname: '/note' });
+        } else {
+            alert('틀린 문제가 없습니다. 홈으로 돌아갑니다.');
+        }
+    }
+
     useEffect(() => {
         checkNumberOfQuiz();
     }, [category, level, count]);
@@ -69,6 +77,7 @@ const QuizSetting:React.FC<Props> = ({props}) => {
     return (
         <Wrapper>
             <Container>
+                <Link onClick={() => onLinkClick()}>My Notes</Link>
                 <Modal css={responsive_modal}>
                     <ModalBody>
                         <Title css={responsive_title}>Hello Quiz</Title>
