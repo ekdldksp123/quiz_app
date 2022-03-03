@@ -130,6 +130,9 @@ export const NextBtn:React.FC<NextBtnProps> = ({ id }) => {
 export const BackBtn:React.FC = () => {
     const onGoBack = () => {
         Router.push({pathname: '/quiz'});
+        if(window.localStorage.hasOwnProperty('notes')) {
+            window.localStorage.removeItem('notes'); //다시 풀기 선택시 오답 기록 지우기
+        }
     }
     return <Back id="retry" onClick={() => onGoBack()}>Try Again</Back>
 }

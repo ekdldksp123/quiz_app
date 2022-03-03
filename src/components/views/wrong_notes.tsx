@@ -5,21 +5,22 @@ import { Page } from "../layout/slide";
 import { Form, Body, Head, No, Question, Content } from './solve_quizzes.styles';
 import { leftPad, decode } from "../../lib/common";
 import { NoteOptions } from "../layout/options";
-import { Link, Paging } from "../molecules/caption";
+import { Home, Link, Paging } from "../molecules/caption";
 import { Footer } from "../layout/background";
 import Router from 'next/router'
 
 const WrongNote:React.FC<NoteProps> = ({ quiz, index, amount }) => {
 
     const clearStorage = () => {
-        Router.push({ pathname: '/' });
         window.localStorage.clear();
         alert('스토리지가 정리되었습니다.');
+        Router.push({ pathname: '/' });
     }
 
     return (
         <Page className="page">
             <Link onClick={() => clearStorage()}>Remove All</Link>
+            <Home onClick={() => Router.push({ pathname: '/' })} />
             <Form css={responsive_form}>
                 <Body>
                     <Head>

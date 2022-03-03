@@ -61,3 +61,41 @@ export const Link = styled.div`
     }
 `
 
+export const Link2 = styled.div`
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 40px !important;
+    font-size: 1.35rem;
+    color: #fff;
+    
+    padding-bottom: 15px;
+
+    &:after {
+        display:block;
+        content: '';
+        left: 0;
+        height: 2px;
+        width: 100%;
+        border-bottom: solid 2px #fff;
+        transform-origin: left top;
+        transform: scale(0, 1);
+        transition: color 0.1s, transform 0.3s ease-out;
+    }
+
+    &:hover:after {
+        transform-origin: right top;
+        transform: scale(1, 1);
+    }
+`
+
+interface LinkProps {
+    onClick: () => void,
+}
+
+export const Home:React.FC<LinkProps> = ({onClick}) => {
+    return  <Link2 onClick={() => onClick()}>Quiz Home</Link2>;
+}
+

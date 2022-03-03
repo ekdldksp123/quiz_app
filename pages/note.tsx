@@ -35,7 +35,7 @@ const Note: NextPage = () => {
             next.addEventListener('click', (e:Event) => {
                 if(pageIndex + 1 <= notes.length) {
                     const page = document.querySelectorAll('.page')[pageIndex];
-                    page.parentElement.style.transform = `translateX(${ -100 * ((pageIndex + 1) % notes.length) }%)`;
+                    page.parentElement.style.transform = `translateX(calc(-100 * ${(pageIndex + 1) % notes.length}%))`;
                     setPageIndex(pageIndex + 1);
                 } else {
                     e.preventDefault();
@@ -45,7 +45,7 @@ const Note: NextPage = () => {
             prev.addEventListener('click', (e:Event) => {
                 if(pageIndex - 1 >= 0) {
                     const page = document.querySelectorAll('.page')[pageIndex];
-                    page.parentElement.style.transform = `translateX(${ -100 * (pageIndex - 1) }%)`;
+                    page.parentElement.style.transform = `translateX(calc(${-100 * (pageIndex - 1)}%))`;
                     setPageIndex(pageIndex - 1);
                 } else {
                     e.preventDefault();
