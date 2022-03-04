@@ -15,7 +15,6 @@
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
-    "@storybook/addon-docs": "^6.4.19",
     "axios": "^0.26.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "chart.js": "^3.7.1",
@@ -33,15 +32,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@storybook/addon-a11y": "^6.4.19",
-    "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addon-controls": "^6.4.19",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-interactions": "^6.4.19",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/preset-create-react-app": "^4.0.1",
-    "@storybook/react": "^6.4.19",
-    "@storybook/testing-library": "^0.0.9",
     "@types/node": "17.0.21",
     "@types/react": "17.0.39",
     "babel-loader": "^8.2.3",
@@ -49,6 +39,7 @@
     "eslint-config-next": "12.1.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "redux-devtools-extension": "^2.13.9",
+    "storybook-addon-emotion-theme": "^2.1.1",
     "typescript": "4.5.5"
   },
   "homepage": "https://ekdldksp123.github.io/quiz_app/"
