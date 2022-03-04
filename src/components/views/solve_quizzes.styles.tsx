@@ -1,16 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { css, keyframes } from "@emotion/react";
 import styled from '@emotion/styled';
-
-// export const Page = styled.div`
-//     flex: 0 0 auto;
-//     height: 100% !important;
-//     width: 100%;
-//     transition: 1s;
-//     left: 0%;
-//     opacity: 1;
-//     position: relative;
-// `
 
 export const Form = styled.div`
     position: sticky; //이거야 내가 원하던 거><

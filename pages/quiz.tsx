@@ -49,6 +49,10 @@ const Quiz: NextPage = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if(quizList.length > 0) console.log(JSON.stringify(quizList));
+    }, [quizList])
+
     return (
         <Container>
             <Slide>

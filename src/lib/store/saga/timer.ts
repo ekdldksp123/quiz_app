@@ -63,8 +63,6 @@ function* connectChannel() {
 
             if (pause) {
                 yield put(TimerActions.setStatus({ status: "pause" }));
-                // yield take(TimerActions.restart);
-                // yield put(TimerActions.setStatus({ status: "play" }));
             }
         }
     } catch (error) {
