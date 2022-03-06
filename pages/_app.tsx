@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
         <Head>
           <title>Hello Quiz</title>
+          <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
           <link rel="icon" href="/favicon.ico" />
           <style>{globalCss}</style>
         </Head>
