@@ -52,3 +52,8 @@
 ### 2023-03-23
 
 - 오답노트 슬라이딩 리팩토링 및 성능 개선
+
+
+### 2023-03-25
+
+- github action key : ssh key -> github token 으로 변경
